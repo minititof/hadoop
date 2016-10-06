@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<h1>MapReduce in JS</h1>
+		<h2>Christophe Bartier - ING5 SI 2</h2>
+		<p>Test string: "This is a basic test string"</p>
+		<p>Open console to see the array</p>
+
+		<script>
+		var myString = "This is a basic test string";
+
+		//Returns a list of values
+		var map = function (str) {
+			//We know there are spaces between each word so we use that to detect each word
+		    return str.split(" ").map(function(str) {
+		      return [str, [1]];
+		    })
+		}
+	
+		//Return an array of occurences of each word
+		var reduce = function (arr){
+			//We browse through the entire array
+			for (var i = 0; i < myArray.length - 1; i++) {
+				myArray[i][1] = myArray[i][1].reduce(function(a, b) {
+			  		return a + b;
+				});
+			}
+		}
+
+		//First, the array gets through the map function
+		var myArray = map(myString);
+		//Then, through the reduce function
+		reduce(myArray);
+		//Array is displayed in the console (F12)
+		console.log(myArray);
+		</script>
+	</body>
+</html>
